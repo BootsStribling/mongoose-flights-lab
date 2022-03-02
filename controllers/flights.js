@@ -1,5 +1,5 @@
-import methodOverride from "method-override"
 import { Flight } from "../models/flight.js"
+import methodOverride from "method-override"
 
 function index(req, res){
   console.log("*happy R2D2 index chirps")
@@ -13,13 +13,26 @@ function index(req, res){
   })
 }
 
-function newFlight(req, res) {
+function newFlight(req,res){
   res.render('flights/new', {
     title: 'Add Flight'
   })
 }
 
+function create(req, res){
+  for (let key in req.body) {
+    if(req.body[key] === "") delete req.body[key]
+  }
+  const flight = new Flight(req.body)
+  flight.save(function(err){
+    if(err) return res.redirect('/flights/new')
+    res.redirect(`/flights`)
+  })
+}
+
+
 export{
   index,
   newFlight as new,
+  create,
 }
