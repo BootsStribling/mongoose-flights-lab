@@ -35,9 +35,20 @@ function create(req, res){
   })
 }
 
+function show (req,res){
+  Flight.findById(req.params.id, function(err, flight){
+    res.render('flights/show', {
+      err: err,
+      flight: flight,
+      title: 'Flight Detail'
+    })
+  })
+}
+
 
 export{
   index,
   newFlight as new,
   create,
+  show
 }

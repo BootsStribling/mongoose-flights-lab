@@ -17,38 +17,13 @@
     <div>Airport</div>
     <div><%= flight.airport%></div>
     <div>Flight No.</div>
-    <div><%= flight.nowShowing ? 'Yes' : 'Nope' %></div>
+    <div><%= flight.flightNo %></div>
     <div>Tickets</div>
-    <ul>
       <% flight.tickets.forEach(ticket => { %>
-        <li><%= ticket.seat %></li>
-        <li><%= ticket.price %></li>
+        <div><%= ticket.seat %><div>
+        <div><%= ticket.price %></div>
       <% }) %>
-    </ul>
   </section>
-  <form 
-    id="add-per-to-cast"
-    action="/flights/<%= flight._id %>/tickets"
-    method="post"
-  >
-    <select name="ticketId">
-      <% tickets.forEach(ticket => { %>
-        <option value="<%= ticket._id %>"><%= ticket.name %></option>
-      <% }) %>
-    </select>
-    <button type="submit">Add Ticket</button>
-  </form>
-  <h2>Tickets</h2>
-  <form 
-    action="/flights/<%= flight._id %>/tickets"
-    id="add-ticket-form"
-    method="post"
-  >
-    <label for="price-textarea">Price:</label>
-    <textarea name="price" id="price-textarea"></textarea>
-    <label for="price-select">Seat:</label>
-    <textarea name="seat" id="seat-textarea">
-    <button type="submit">Add Ticket</button>
 </main>
 
 
