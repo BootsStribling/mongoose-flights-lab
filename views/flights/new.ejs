@@ -13,17 +13,17 @@
     </select>
     <label for="airport-select">Airport:</label>
     <select name="airport" id="airport-select">
-      <option value="DEN">Denver</option>
       <option value="AUS">Austin</option>
+      <option value="DEN" selected>Denver</option>
       <option value="DFW">Dallas Fort-Worth</option>
       <option value="LAX">Los Angeles</option>
       <option value="SAN">San Francisco</option>
     </select>
     <label for="flight-no-input">Flight No.</label>
-    <input type="text" name="flight-no" id="flight-no-input" />
+    <input type="text" name="flightNo" id="flight-no-input" />
     <label for="datetimelocal-input">Departure</label>
-    <input type="datetime-local" name="datetimelocal" id="datetime-local-input" />
-    <button href="/flights" submit">Add Flight</button>
+    <input type="datetime-local" name="departs" id="datetime-local-input" value="departsDate"/>
+    <button href="/flights" type="submit">Add Flight</button>
   </form>
 </main>
 

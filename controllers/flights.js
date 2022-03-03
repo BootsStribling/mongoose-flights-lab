@@ -2,8 +2,8 @@ import { Flight } from "../models/flight.js"
 import methodOverride from "method-override"
 
 function index(req, res){
-  console.log("*happy R2D2 index chirps")
   Flight.find({}, function (err, flights) {
+    flights.sort()
     console.log(err)
     res.render("flights/index", {
       err,
@@ -14,8 +14,13 @@ function index(req, res){
 }
 
 function newFlight(req,res){
+  const newFlight = new Flight()
+  const dt = newFlight.departs
+  const departsDate = dt.toISOString().slice(0,1,6)
+  console.log(departsDate)
   res.render('flights/new', {
-    title: 'Add Flight'
+    title: 'Add Flight',
+    departsDate
   })
 }
 
@@ -25,7 +30,7 @@ function create(req, res){
   }
   const flight = new Flight(req.body)
   flight.save(function(err){
-    if(err) return res.redirect('/flights/new')
+    if (err) return res.redirect('/flights/new')
     res.redirect(`/flights`)
   })
 }
