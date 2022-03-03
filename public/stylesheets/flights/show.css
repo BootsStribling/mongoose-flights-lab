@@ -28,6 +28,11 @@ section {
   grid-gap: 1.6rem;
 }
 
+#add-meal-to-flight{
+  display: flex;
+  flex-direction: row;
+
+}
 
 #ticket-list {
   display: flex;
