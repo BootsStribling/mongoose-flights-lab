@@ -44,6 +44,7 @@ body > main {
 }
 body > h1 {
   text-align: center;
+
 }
 
 body > main h1:first-child {
@@ -84,7 +85,7 @@ nav > a:hover {
 }
 
 nav > a.active {
-  background-color: white;
+  background-color: rgba(255,255,255,.5);
 }
 
 
