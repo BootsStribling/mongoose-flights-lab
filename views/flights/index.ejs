@@ -10,6 +10,7 @@
       <th>Airport</th>
       <th>Flight No.</th>
       <th>Departs</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +21,9 @@
         <td><%= flight.airport %></td>
         <td><%= flight.flightNo %></td>
         <td><%= flight.departs %></td>
+        <td><form action="/flights/<%= flight._id %>?_method=DELETE" method="POST">
+          <button>Delete</button>
+        </form></td>
         <td><a href="/flights/<%= flight._id %>">DETAILS</a></td>
       </tr>
     <% }) %>

@@ -1,11 +1,6 @@
-ul {
-  margin: 0 0 1.6rem;
-  padding: 0;
-  list-style: none;
-}
-
-li {
-  font-weight: bold;
+main{
+  display: flex;
+  flex-direction: column;
 }
 
 table {
@@ -33,22 +28,30 @@ section {
   grid-gap: 1.6rem;
 }
 
-section div:nth-child(even) {
-  font-weight: bold;
+
+#ticket-list {
+  display: flex;
+
 }
 
-#add-review-form {
+#ticket {
+  display: flex;
+  margin: 5px;
+  flex-direction: column;
+}
+
+#add-ticket-form {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 1.6rem;
   margin-bottom: 2rem
 }
 
-#add-review-form > textarea {
+#add-ticket-form > textarea {
   width: 25rem;
 }
 
-#add-review-form > button {
+#add-ticket-form > button {
   font-size: 1.6rem;
   width: 16rem;
   grid-column: 2 / 3;

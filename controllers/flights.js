@@ -1,5 +1,4 @@
 import { Flight } from "../models/flight.js"
-import methodOverride from "method-override"
 
 function index(req, res){
   Flight.find({}, function (err, flights) {
@@ -45,10 +44,27 @@ function show (req,res){
   })
 }
 
+function deleteFlight(req,res) {
+  Flight.findByIdAndDelete(req.params.id, function(err, flight){
+    res.redirect('/flights')
+  })
+}
+
+function createTicket(req,res) {
+  Flight.findById(req.params.id, function(err,flight){
+    flight.tickets.push(req.body)
+    flight.save(function(err){
+      res.redirect(`/flights/${flight._id}`)
+    })
+  })
+}
+
 
 export{
   index,
   newFlight as new,
   create,
-  show
+  show,
+  deleteFlight as delete,
+  createTicket
 }
